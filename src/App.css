@@ -47,3 +47,14 @@
 .btn-submit{
   margin-top: 1.5rem;
 }
+
+.table{
+  margin-top: 8px;
+  margin-left: 4px;
+  margin-right: 4px;
+}
+
+.buttons{
+  display: flex;
+  justify-content: space-between;
+}
