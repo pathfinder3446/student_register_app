@@ -12,6 +12,8 @@
   background-repeat: no-repeat;
   background-size: cover;
   margin-left: 28rem;
+  margin-top: 4rem;
+  margin-bottom: 8rem;
 }
 
 .navbar{
@@ -72,7 +74,7 @@
 .info {
 	margin: 65px auto 0;
 	color: #bfbfbf;
-	font-size: 16px;
+	font-size: 13px;
 	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
 	text-align: center;
 }

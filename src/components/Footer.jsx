@@ -5,7 +5,7 @@ const Footer = () => {
     <footer className="info">
 	<p>Click to edit a todo</p>
 	<p>Created by <a href="https://github.com/pathfinder3446">Arif Kılınç</a></p>
-	<p>Part of <a href="https://github.com/pathfinder3446/redux_todo_app">Redux Todo APP</a></p>
+	<p>Part of <a href="https://github.com/pathfinder3446/student_register_app">Öğrenci Kayıt Uygulaması</a></p>
 </footer>
   )
 }
