@@ -1,12 +1,36 @@
-import FilterBox from "../components/FilterBox";
+import { useState } from "react";
 import Pagination from "../components/Pagination";
 
 function Table({ infos, setInfos }) {
+  const [filtered, setFiltered] = useState("");
+  const [filtered1, setFiltered1] = useState("");
   console.log(infos);
-
+  const handleSubmit = (e) => {
+    setFiltered1(filtered)
+    e.preventDefault();
+    
+    
+      };
   return (
     <div>
-      <FilterBox infos={infos} setInfos={setInfos} />
+      <div className="filter-box">
+        <form onSubmit={handleSubmit} className="form-inline my-2 my-lg-0">
+          <input
+            className="form-control mr-sm-2"
+            type="search"
+            placeholder="Öğrenci ismine göre arama"
+            aria-label="Search"
+            value={filtered}
+            onChange={(e) => setFiltered(e.target.value)}
+          />
+          <button
+            className="btn btn-outline-success my-2 my-sm-0"
+            type="submit"
+          >
+            Filtrele
+          </button>
+        </form>
+      </div>
       <table className="table table-bordered table-striped">
         <thead>
           <tr>
@@ -28,24 +52,28 @@ function Table({ infos, setInfos }) {
           {infos?.map((i, index) => {
             return (
               <tr key={index}>
-                <td>{i.gorTarih}</td>
-                <td>{i.adSoyad}</td>
-                <td>
-                  {i.sehir}/{i.ilce}
-                </td>
-                <td>{i.anneAdi}</td>
-                <td>{i.anneTel}</td>
-                <td>{i.danisman}</td>
-                <td>{i.randevuKaynak}</td>
-                <td>Yeni Kayıt</td>
-                <td>{i.yuzGor}</td>
-                <td>Beklemede</td>
-                <td>Yapılmadı</td>
-                <td className="buttons">
-                  <button className="btn btn-success">Görüntüle</button>
-                  <button className="btn btn-warning">Güncelle</button>
-                  <button className="btn btn-danger">Sil</button>
-                </td>
+                {i.adSoyad.includes(filtered1) && (
+                  <>
+                    <td>{i.gorTarih}</td>
+                    <td>{i.adSoyad}</td>
+                    <td>
+                      {i.sehir}/{i.ilce}
+                    </td>
+                    <td>{i.anneAdi}</td>
+                    <td>{i.anneTel}</td>
+                    <td>{i.danisman}</td>
+                    <td>{i.randevuKaynak}</td>
+                    <td>Yeni Kayıt</td>
+                    <td>{i.yuzGor}</td>
+                    <td>Beklemede</td>
+                    <td>Yapılmadı</td>
+                    <td className="buttons">
+                      <button className="btn btn-success">Görüntüle</button>
+                      <button className="btn btn-warning">Güncelle</button>
+                      <button className="btn btn-danger">Sil</button>
+                    </td>
+                  </>
+                )}
               </tr>
             );
           })}
