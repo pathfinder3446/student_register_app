@@ -4,11 +4,15 @@
   box-sizing: border-box;
 }
 
-/* #root {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-} */
+.main{
+  background-image: url("./assets/cropped-MorsLogo-1-1.png");
+  width: 800px;
+  height: 350px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-left: 28rem;
+}
 
 .navbar{
   font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -16,6 +20,12 @@
   font-weight: bolder;
   background-color: #66A4DE;
   
+}
+
+.navbar-nav{
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 
@@ -57,4 +67,26 @@
 .buttons{
   display: flex;
   justify-content: space-between;
+}
+
+.info {
+	margin: 65px auto 0;
+	color: #bfbfbf;
+	font-size: 16px;
+	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+	text-align: center;
+}
+
+.info p {
+	line-height: 1;
+}
+
+.info a {
+	color: inherit;
+	text-decoration: none;
+	font-weight: 400;
+}
+
+.info a:hover {
+	text-decoration: underline;
 }

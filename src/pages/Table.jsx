@@ -1,18 +1,8 @@
-import { useEffect, useState } from "react";
-// import { useLocation } from "react-router-dom";
 
+function Table({ infos, setInfos }) {
+ 
+  console.log(infos);
 
-function Table() {
-  // const { state } = useLocation
-  const [info, setInfo] = useState({});
-
-useEffect(() => {
-  const info = JSON.parse(localStorage.getItem('info'));
-  if (info) {
-   setInfo(info);
-  }
-}, []);
-  console.log(info.adSoyad)
   return (
     <div>
       <table className="table table-bordered table-striped">
@@ -33,24 +23,29 @@ useEffect(() => {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>{info.gorTarih}</td>
-            <td>{info.adSoyad}</td>
-            <td>{info.sehir}/{info.ilce}</td>
-            <td>{info.anneAdi}</td>
-            <td>{info.anneTel}</td>
-            <td>{info.danisman}</td>
-            <td>{info.randevuKaynak}</td>
-            <td>Yeni Kayıt</td>
-            <td>{info.yuzGor}</td>
-            <td>Beklemede</td>
-            <td>Yapılmadı</td>
-            <td className="buttons">
-              <button className="btn btn-success">Görüntüle</button>
-              <button className="btn btn-warning">Güncelle</button>
-              <button className="btn btn-danger">Sil</button>
-            </td>
-          </tr>
+          {infos?.map((i, index) => {
+            return (
+              <tr key={index}>
+              <td>{i.gorTarih}</td>
+              <td>{i.adSoyad}</td>
+              <td>{i.sehir}/{i.ilce}</td>
+              <td>{i.anneAdi}</td>
+              <td>{i.anneTel}</td>
+              <td>{i.danisman}</td>
+              <td>{i.randevuKaynak}</td>
+              <td>Yeni Kayıt</td>
+              <td>{i.yuzGor}</td>
+              <td>Beklemede</td>
+              <td>Yapılmadı</td>
+              <td className="buttons">
+                <button className="btn btn-success">Görüntüle</button>
+                <button className="btn btn-warning">Güncelle</button>
+                <button className="btn btn-danger">Sil</button>
+              </td>
+            </tr>
+            )
+            
+          })}
         </tbody>
       </table>
     </div>

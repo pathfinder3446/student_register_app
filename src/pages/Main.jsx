@@ -1,9 +1,13 @@
-import React from 'react'
+import React from "react";
+import Footer from "../components/Footer";
 
 function Main() {
   return (
-    <div>Main</div>
-  )
+    <>
+      <div className="main"></div>
+      <Footer />
+    </>
+  );
 }
 
-export default Main
+export default Main;

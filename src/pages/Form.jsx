@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 
-function Form() {
+function Form({ infos, setInfos }) {
   const navigate = useNavigate();
   const [info, setInfo] = useState({
     adSoyad: "",
@@ -25,26 +25,45 @@ function Form() {
   });
 
   const handleFormValues = (e) => {
-    setInfo({ ...info, [e.target.name]: e.target.value });
+    setInfo({...info, [e.target.name] : e.target.value});
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    localStorage.setItem("info", JSON.stringify(info));
-    navigate("table", { state: {info} });
+    const id = new Date().getTime();
+    const newInfo = {
+      id: id,
+      adSoyad: info.adSoyad,
+      sehir: info.sehir,
+      ilce: info.ilce,
+      sinif: info.sinif,
+      anneAdi: info.anneAdi,
+      anneTel: info.anneTel,
+      anneMeslek: info.anneMeslek,
+      babaAdi: info.babaAdi,
+      babaTel: info.babaTel,
+      babaMeslek: info.babaMeslek,
+      adres: info.adres,
+      randevuKaynak: info.randevuKaynak,
+      danisman: info.danisman,
+      yuzGor: info.yuzGor,
+      gorTarih: info.gorTarih,
+      genelNot: info.genelNot,
+      yeniKayit: info.yeniKayit,
+    };
+    setInfos([...infos, newInfo]);
+    setInfo({});
+    navigate("/form/table")
   };
 
-
-  console.log(info);
+ 
+  console.log(infos);
   return (
     <div className="form-container border border-dark-2 ">
       <label className="form-header">
         <h5>Randevu Formu</h5>
       </label>
-      <form 
-      className="form m-4"
-      onSubmit={handleSubmit}
-      >
+      <form className="form m-4" onSubmit={handleSubmit}>
         <div className="mb-3">
           <input
             type="text"
@@ -61,7 +80,6 @@ function Form() {
           <select
             className="form-select"
             aria-label="Default select example"
-            placeholder="İlçe Seçin"
             name="sehir"
             value={info.sehir}
             onChange={handleFormValues}
@@ -80,9 +98,8 @@ function Form() {
             name="ilce"
             value={info.ilce}
             onChange={handleFormValues}
-            required
+            // required
           >
-            <option value="#">ilçe seçin</option>
             {info.sehir === "Ankara" && (
               <>
                 <option value="#">ilçe seçin</option>
