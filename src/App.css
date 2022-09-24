@@ -92,3 +92,27 @@
 .info a:hover {
 	text-decoration: underline;
 }
+
+.filter-box{
+  display: flex;
+  justify-content: end;
+  margin: 8px;
+  padding: 4PX;
+}
+
+.form-inline{
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+  margin: 1rem;
+}
+
+.form-inline input{
+  width: 320px;
+}
+
+.pagination{
+  display: flex;
+  justify-content: end;
+  margin: 10px 16px 0 0;
+}

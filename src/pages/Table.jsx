@@ -1,10 +1,12 @@
+import FilterBox from "../components/FilterBox";
+import Pagination from "../components/Pagination";
 
 function Table({ infos, setInfos }) {
- 
   console.log(infos);
 
   return (
     <div>
+      <FilterBox infos={infos} setInfos={setInfos} />
       <table className="table table-bordered table-striped">
         <thead>
           <tr>
@@ -26,28 +28,30 @@ function Table({ infos, setInfos }) {
           {infos?.map((i, index) => {
             return (
               <tr key={index}>
-              <td>{i.gorTarih}</td>
-              <td>{i.adSoyad}</td>
-              <td>{i.sehir}/{i.ilce}</td>
-              <td>{i.anneAdi}</td>
-              <td>{i.anneTel}</td>
-              <td>{i.danisman}</td>
-              <td>{i.randevuKaynak}</td>
-              <td>Yeni Kayıt</td>
-              <td>{i.yuzGor}</td>
-              <td>Beklemede</td>
-              <td>Yapılmadı</td>
-              <td className="buttons">
-                <button className="btn btn-success">Görüntüle</button>
-                <button className="btn btn-warning">Güncelle</button>
-                <button className="btn btn-danger">Sil</button>
-              </td>
-            </tr>
-            )
-            
+                <td>{i.gorTarih}</td>
+                <td>{i.adSoyad}</td>
+                <td>
+                  {i.sehir}/{i.ilce}
+                </td>
+                <td>{i.anneAdi}</td>
+                <td>{i.anneTel}</td>
+                <td>{i.danisman}</td>
+                <td>{i.randevuKaynak}</td>
+                <td>Yeni Kayıt</td>
+                <td>{i.yuzGor}</td>
+                <td>Beklemede</td>
+                <td>Yapılmadı</td>
+                <td className="buttons">
+                  <button className="btn btn-success">Görüntüle</button>
+                  <button className="btn btn-warning">Güncelle</button>
+                  <button className="btn btn-danger">Sil</button>
+                </td>
+              </tr>
+            );
           })}
         </tbody>
       </table>
+      <Pagination />
     </div>
   );
 }
