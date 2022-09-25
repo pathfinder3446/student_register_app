@@ -4,7 +4,7 @@ import Pagination from "../components/Pagination";
 function Table({ infos, setInfos }) {
   const [filtered, setFiltered] = useState("");
   const [filtered1, setFiltered1] = useState("");
-  console.log(infos);
+  // console.log(infos);
   const handleSubmit = (e) => {
     setFiltered1(filtered)
     e.preventDefault();
@@ -12,12 +12,13 @@ function Table({ infos, setInfos }) {
 
   const handleDelete = ((id) => {
     console.log(id)
-    setInfos(infos.filter((item) => item.id !== id
+    if (window.confirm("Bu satırı silmek istediğinizden emin misiniz ?")) {
+      setInfos(infos.filter((item) => item.id !== id
     ));
-  });
+    } });
 
   return (
-    <div>
+    <div className="table-container">
       <div className="filter-box">
         <form onSubmit={handleSubmit} className="form-inline my-2 my-lg-0">
           <input
@@ -54,6 +55,7 @@ function Table({ infos, setInfos }) {
           </tr>
         </thead>
         <tbody>
+          {infos.length === 0 && <tr id="no-found">Yeni kayıt sekmesinden veri gririniz!</tr> }
           {infos?.map((i, index) => {
             return (
               <tr key={index}>

@@ -7,7 +7,6 @@ import Main from "../pages/Main";
 
 function AppRouter() {
   const [infos, setInfos] = useState(JSON.parse(localStorage.getItem('infos')) || [] );
-  console.log(infos);
 
   useEffect(() => {
     localStorage.setItem("infos", JSON.stringify(infos))    

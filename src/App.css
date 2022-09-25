@@ -63,7 +63,17 @@
 .table{
   margin-top: 8px;
   margin-left: 4px;
-  margin-right: 4px;
+  margin-right: 6px;
+  margin: 8px;
+
+}
+
+.table-container{
+  width: 98%;
+  margin-top: 8px;
+  margin-left: 8px;
+  padding: 4px;
+
 }
 
 .buttons{
@@ -96,7 +106,7 @@
 .filter-box{
   display: flex;
   justify-content: end;
-  margin: 8px;
+  margin: 8px 8px 48px 8px;
   padding: 4PX;
 }
 
@@ -115,4 +125,10 @@
   display: flex;
   justify-content: end;
   margin: 10px 16px 0 0;
+}
+
+#no-found{
+  text-align: center;
+  font-style: italic;
+  color: red;
 }
