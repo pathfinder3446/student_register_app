@@ -8,9 +8,14 @@ function Table({ infos, setInfos }) {
   const handleSubmit = (e) => {
     setFiltered1(filtered)
     e.preventDefault();
-    
-    
       };
+
+  const handleDelete = ((id) => {
+    console.log(id)
+    setInfos(infos.filter((item) => item.id !== id
+    ));
+  });
+
   return (
     <div>
       <div className="filter-box">
@@ -70,7 +75,7 @@ function Table({ infos, setInfos }) {
                     <td className="buttons">
                       <button className="btn btn-success">Görüntüle</button>
                       <button className="btn btn-warning">Güncelle</button>
-                      <button className="btn btn-danger">Sil</button>
+                      <button onClick={() => handleDelete(i.id)} className="btn btn-danger">Sil</button>
                     </td>
                   </>
                 )}
